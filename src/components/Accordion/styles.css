@@ -1,0 +1,27 @@
+.MuiOutlinedInput-input {
+  padding: 0;
+}
+
+.accordion-title {
+  margin-top: 2px;
+}
+
+.text {
+  width: 300px;
+}
+
+.button {
+  width: 70px;
+  height: 30px;
+}
+
+.center-div {
+  margin-top: 5px;
+  display: flex;
+}
+
+.centering {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
