@@ -2,12 +2,9 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-  Button,
   CircularProgress,
   makeStyles,
-  TextField,
   Typography,
-  withStyles,
 } from '@material-ui/core';
 
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
