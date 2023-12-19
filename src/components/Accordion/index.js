@@ -32,7 +32,6 @@ export default function SimpleAccordion() {
 
   const [lista, setLista] = useState([]);
 
-  const [nome, setNome] = useState('');
 
   useEffect(() => {
     fetchData();
@@ -41,7 +40,7 @@ export default function SimpleAccordion() {
   function fetchData() {
     setLista([]);
     setLista(listaMock);
-    console.log(JSON.stringify(listaMock))
+
     /* getAll()
       .then((response) => {
         setLista(response.data);
@@ -51,23 +50,6 @@ export default function SimpleAccordion() {
       }); */
   }
 
-  function handleAssinar(item) {
-    if (nome.length > 2) {
-      item.nome = nome;
-      item.checked = true;
-
-      /* updateItem(item)
-        .then((response) => {
-          console.log(response);
-          fetchData();
-        })
-        .catch((error) => {
-          console.error(error);
-        }); */
-    } else {
-      alert('É necessário digitar um nome antes de assinar!');
-    }
-  }
 
   function handleClasseStyleSelector(classeId) {
     let css = { width: '96%', backgroundColor: '#ffffff' };
