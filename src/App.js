@@ -1,6 +1,7 @@
-import { Typography, Button } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 
 import Lista from './components/Accordion';
+import Form from './components/Form'
 
 import './App.css';
 
@@ -30,14 +31,8 @@ function App() {
           Calendário de atividades
         </Typography>
       </div>
-      <div className="box1">
-        <Button variant="contained" style={{
-          width: '95%',
-          height: '50px',
-          marginBottom: '10px',
-          backgroundColor: '#57e498'
-        }}>Adicionar evento</Button>
-      </div>
+
+      <Form />
       <Lista />
     </div>
   );
