@@ -10,8 +10,8 @@ import {
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import React, { useEffect, useState } from 'react';
 import listaMock from '../../ListaChaCasaMock.json'
+import { getEvents } from '../../services/programeeApiService';
 
-/* import { getAll, updateItem } from '../../service/requestService'; */
 
 import './styles.css';
 
@@ -39,17 +39,33 @@ export default function SimpleAccordion() {
 
   function fetchData() {
     setLista([]);
-    setLista(listaMock);
-
-    /* getAll()
-      .then((response) => {
-        setLista(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      }); */
+    if (process.env.REACT_APP_MOCK_DATA === 'true') {
+      setLista(listaMock);
+    } else {
+      getEvents()
+        .then((response) => {
+          setLista(response.data);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
   }
 
+  function formatDate(dataString) {
+    // Cria um objeto de data a partir da string
+    const data = new Date(dataString);
+
+    // Obtém o dia, mês e ano
+    const dia = String(data.getUTCDate()).padStart(2, '0');
+    const mes = String(data.getUTCMonth() + 1).padStart(2, '0'); // Os meses são baseados em zero
+    const ano = data.getUTCFullYear();
+
+    // Formata a data no estilo desejado
+    const dataFormatada = `${dia}/${mes}/${ano}`;
+
+    return dataFormatada;
+  }
 
   function handleClasseStyleSelector(classeId) {
     let css = { width: '96%', backgroundColor: '#ffffff' };
@@ -116,7 +132,7 @@ export default function SimpleAccordion() {
                     <Typography
                       style={{ marginTop: '5px', marginLeft: '5px', fontSize: 12 }}
                     >
-                      {item.data}
+                      {formatDate(item.data)}
                     </Typography>
                     <Typography
                       style={{ marginTop: '5px', marginLeft: '25px', fontSize: 16 }}
