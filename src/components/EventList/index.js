@@ -3,53 +3,32 @@ import {
   AccordionDetails,
   AccordionSummary,
   CircularProgress,
-  makeStyles,
-  Typography,
-} from '@material-ui/core';
+  Typography
+} from '@mui/material';
 
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import React, { useEffect, useState } from 'react';
-import listaMock from '../../ListaChaCasaMock.json'
-import { getEvents } from '../../services/programeeApiService';
-
+import { getEvents } from '../../services/apiService';
 
 import './styles.css';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    opacity: 0.8,
-    width: '99%',
-
-  },
-  heading: {
-    fontSize: theme.typography.pxToRem(15),
-    fontWeight: theme.typography.fontWeightRegular,
-  },
-}));
-
-export default function SimpleAccordion() {
-  const classes = useStyles();
+export default function EventList() {
 
   const [lista, setLista] = useState([]);
-
 
   useEffect(() => {
     fetchData();
   }, []);
 
-  function fetchData() {
+  async function fetchData() {
     setLista([]);
-    if (process.env.REACT_APP_MOCK_DATA === 'true') {
-      setLista(listaMock);
-    } else {
-      getEvents()
-        .then((response) => {
-          setLista(response.data);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    }
+    await getEvents()
+      .then((response) => {
+        setLista(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
   function formatDate(dataString) {
@@ -100,7 +79,7 @@ export default function SimpleAccordion() {
   }
 
   return (
-    <div className={classes.root}>
+    <div className='containerMargin' >
       {lista.length === 0 ? (
         <div
           style={{

@@ -26,11 +26,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: transparent;
 }
 
 .box1-5 {
   margin-top: 15px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,4 +59,12 @@ body {
   display: block;
   background-color: #ffffff;
   opacity: 0.8;
+}
+
+.title-area {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
 }

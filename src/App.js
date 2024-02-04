@@ -1,8 +1,7 @@
-import { Typography } from '@material-ui/core';
 
-import Lista from './components/Accordion';
+import { Typography } from '@mui/material';
+import EventList from './components/EventList'
 import Form from './components/Form'
-
 import './App.css';
 
 function App() {
@@ -14,6 +13,7 @@ function App() {
             fontFamily: 'Alex Brush',
             fontSize: '38px',
             fontWeight: 'bold',
+            backgroundColor: 'transparent'
           }}
         >
           Programee
@@ -31,9 +31,8 @@ function App() {
           Calendário de atividades
         </Typography>
       </div>
-
       <Form />
-      <Lista />
+      <EventList />
     </div>
   );
 }
