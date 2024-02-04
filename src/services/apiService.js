@@ -11,6 +11,11 @@ export function getEvents() {
   return api.get('eventos');
 }
 
+export function postEvent(event) {
+  const body = event
+  return api.post('evento', body);
+}
+
 export function updateItem(obj) {
   const id = obj._id;
   const body = {

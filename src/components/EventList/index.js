@@ -70,6 +70,21 @@ export default function EventList() {
       case 7:
         css.borderTop = '5px solid #f0ff99'
         break;
+      case 8:
+        css.borderTop = '5px solid linear-gradient(90deg, rgba(23,162,243,1) 0%, rgba(146,125,240,1) 50%, rgba(250,94,237,1) 100%)'
+        break;
+      case 9:
+        css.borderTop = '5px solid linear-gradient(90deg, rgba(210,0,26,1) 0%, rgba(116,98,255,1) 50%)'
+        break;
+      case 10:
+        css.borderTop = '5px solid #74737d'
+        break;
+      case 11:
+        css.borderTop = '5px solid #324a19'
+        break;
+      case 12:
+        css.borderTop = '5px solid linear-gradient(90deg, rgba(34,172,0,1) 0%, rgba(50,74,25,1) 50%)'
+        break
       default:
         css.borderTop = '#ffffff'
         break;
