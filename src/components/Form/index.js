@@ -39,9 +39,9 @@ function Form() {
     setClasse(event.target.value);
   };
 
-  const handleCancel = () => {
+  /* const handleCancel = () => {
     // Lógica para cancelar
-  };
+  }; */
 
   const handleAdd = async () => {
     const classeSelecionada = opcoes.find((opcao) => opcao.id === classe);
