@@ -24,6 +24,7 @@ export default function EventList() {
     setLista([]);
     await getEvents()
       .then((response) => {
+        console.log(response.data)
         setLista(response.data);
       })
       .catch((error) => {
@@ -128,6 +129,7 @@ export default function EventList() {
                     >
                       {formatDate(item.data)}
                     </Typography>
+
                     <Typography
                       style={{ marginTop: '5px', marginLeft: '25px', fontSize: 16 }}
                     >
@@ -155,7 +157,26 @@ export default function EventList() {
 									botao */
                   /** se o check for true exibira o nome de quem
 									assinou */}
-                  {(
+                  {(<><div className="center-div">
+                    <Typography
+                      style={{
+                        fontSize: 16,
+                        fontWeight: 'bold',
+                        marginLeft: '10px',
+                      }}
+                    >
+                      Horário:
+                    </Typography>
+                    <Typography
+                      style={{
+                        fontSize: 12,
+                        marginLeft: '5px',
+                      }}
+                    >
+                      {item.horario}
+                    </Typography>
+                  </div>
+
                     <div className="center-div">
                       <Typography
                         style={{
@@ -175,6 +196,7 @@ export default function EventList() {
                         {item.descricao}
                       </Typography>
                     </div>
+                  </>
                   )}
                 </AccordionDetails>
               </Accordion>
